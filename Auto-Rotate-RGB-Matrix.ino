@@ -704,7 +704,6 @@ void hScroll_colorwheel_MPU(uint8_t y, Color Bk_color, char *mystring, uint8_t f
 for ((dir) ? offset=0 : offset=((lenString(mystring)-8)*8-1) ; (dir) ? offset <((lenString(mystring)-8)*8-1) : offset >0; (dir) ? offset++ : offset--)
   {
     read_MPU6050();
-    uint8_t pos = (kalAngleX >0 ? 1:0);
       for (byte xx=0; xx<16; xx++)
       {
         for (byte yy=0; yy<8; yy++)
@@ -752,7 +751,7 @@ void hScroll_MPU(uint8_t y, Color For_color, Color Bk_color, char *mystring)
           for (byte yy=0; yy<8; yy++)
               {
                 Color setcolor;
-
+                uint8_t pos = (kalAngleX >0 ? 1:0);
                 if (pos)
                   {
                     if (getPixelHString(xx+offset, yy, mystring)) 
